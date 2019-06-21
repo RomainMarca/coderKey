@@ -1,0 +1,68 @@
+#section {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 0%;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 2%;
+}
+
+#top {
+    display: flex;
+    width: 100%;
+    margin-top: 1%;
+}
+
+.boxTop {
+    margin: auto;
+    padding: 2%;
+    background-image: url("path817.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5%;
+}
+
+#center {
+    display: flex;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.box{
+    margin: auto;
+    text-align: center;
+    font-size : 40px;
+}
+
+#bottom {
+    display: flex;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.boxBottom {
+    margin: auto;
+    padding: 2%;
+    background-image: url("path818.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 5%;
+}
+
+#button {
+    display: block;
+    font-size: 25px;
+    margin: auto;
+    padding: 1%;
+    margin-top: 2%;
+    width: 20%;
+    text-align: center;
+}
+
+#text {
+    text-justify: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+}
