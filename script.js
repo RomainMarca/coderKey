@@ -124,8 +124,11 @@ function clicButton() {
     codeKey = p1.textContent + p2.textContent + p3.textContent 
     + p4.textContent + p5.textContent + p6.textContent;
 
-    //********for playing realy defining the codeKey and write text on ID"text". Recover the text on ID"textModif" and copscol on ID"text". Modify changeText function.
-    // codeKey defining = "badeux"
+/**********************************************************************/
+//for playing realy defining the codeKey and write text on ID"text".
+// Recover the text on ID"textModif" and copscol on ID"text". 
+// codeKey defining = "badeux"
+/**********************************************************************/
 
     codeKey = codeKey.toUpperCase();
 
@@ -140,84 +143,27 @@ function clicButton() {
         abc += newLetters[k];
     }
     abc = codeKey + abc;
-
-//call method
-
-    changeTextInit();
     console.log(abc + " " +abc.length)
-    changeText();
-}
 
-//********For playing realy comment call changeTextInit Function to up.
+/**********************************************************************/
+//For playing realy comment call final text function.
+//Modify textModifValue ID "textModif" by "text".
+/**********************************************************************/
 
-//Transform initial text
-function changeTextInit() {
-    
+    //Transform initial text
     let text =  document.getElementById("text").textContent;
-    text = text.toUpperCase(); 
     let textValue= '';
-
-    for (let l=0; l<text.length;l++) {   
-        switch (text[l]) {
-            case ' ':
-                textValue += ' ';
-                break;
-            case "'":
-                textValue += "'";
-                break;
-            case ',':
-                textValue += ',';
-                break;
-            case '.':
-                textValue += '.';
-                break;
-            default: 
-                for (let m=0; m<26;m++) {
-                    if (text[l] === letters[m]) {
-                        textValue += abc[m];
-                    }
-                }
-        }
-    }
-    textValue = upperText(textValue);
+    textValue = codeText(text, textValue);
     let textModif = document.getElementById("textModif");
     textModif.textContent = textValue;
-}
 
-//********For playing realy change ID "textModif" by "text"
-
-//transform final text
-function changeText() {
+    //transform final text
     let textModifValue = document.getElementById("textModif").textContent;
-    textModifValue = textModifValue.toUpperCase();
     let textFinal = '';
-
-    for (let n=0; n<textModifValue.length; n++) {
-        switch (textModifValue[n]) {
-            case ' ':
-                textFinal += ' ';
-                break;
-            case "'":
-                textFinal += "'";
-                break;
-            case ',':
-                textFinal += ',';
-                break;
-            case '.':
-                textFinal += '.';
-                break;
-            default:
-                for (let o=0; o<26; o++) {
-                    if (textModifValue[n] === abc[o]) {
-                        textFinal += letters[o];
-                    } 
-                }
-        }
-    }
-    //toUpperCase char 1
-    textFinal = upperText(textFinal);
+    textFinal = codeTextFinal(textModifValue, textFinal);
     let realText = document.getElementById("realText");
     realText.textContent = textFinal;
+   
 }
 
 //toUpperCase first letter sentence
@@ -227,7 +173,6 @@ function upperText(str) {
     String.prototype.srtFunc = function() {
         return this.charAt(0).toUpperCase() + this.substr(1);
     }
-
     for (let p=0; p<str.length;p++) {
         if (str[p - 2] === '.') {
             final += str[p].toUpperCase();
@@ -239,5 +184,59 @@ function upperText(str) {
     return final;
 }
 
+//transform text method
+function codeText(textEnter, textExit) {
+    textEnter = textEnter.toUpperCase();
+    for (let l=0; l<textEnter.length; l++) {
+        switch (textEnter[l]) {
+            case ' ':
+                textExit += ' ';
+                break;
+            case "'":
+                textExit += "'";
+                break;
+            case ',':
+                textExit += ',';
+                break;
+            case '.':
+                textExit += '.';
+                break;
+            default: 
+                for (let m=0;m<26;m++) {
+                    if (textEnter[l] === letters[m]) {
+                        textExit += abc[m]
+                    }
+                }
+        }
+    }
+    textExit = upperText(textExit);
+    return textExit;
+}
 
-
+function codeTextFinal(textEnter, textExit) {
+    textEnter = textEnter.toUpperCase();
+    for (let l=0; l<textEnter.length; l++) {
+        switch (textEnter[l]) {
+            case ' ':
+                textExit += ' ';
+                break;
+            case "'":
+                textExit += "'";
+                break;
+            case ',':
+                textExit += ',';
+                break;
+            case '.':
+                textExit += '.';
+                break;
+            default: 
+                for (let m=0;m<26;m++) {
+                    if (textEnter[l] === abc[m]) {
+                        textExit += letters[m]
+                    }
+                }
+        }
+    }
+    textExit = upperText(textExit);
+    return textExit;
+}
