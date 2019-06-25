@@ -66,3 +66,17 @@
     margin: auto;
     margin-top: 5%;
 }
+
+#textModif {
+    text-justify: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+#realText {
+    text-justify: auto;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+}

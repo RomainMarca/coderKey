@@ -1,6 +1,6 @@
-/****************************************************/
+/************************************************************/
 //Todo modify code for encrypted a new text and new codeKey.
-/****************************************************/
+/************************************************************/
 
 let letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 let newLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -153,14 +153,14 @@ function clicButton() {
     //Transform initial text
     let text =  document.getElementById("text").textContent;
     let textValue= '';
-    textValue = codeText(text, textValue);
+    textValue = codeText(text, textValue, letters, abc);
     let textModif = document.getElementById("textModif");
     textModif.textContent = textValue;
 
     //transform final text
     let textModifValue = document.getElementById("textModif").textContent;
     let textFinal = '';
-    textFinal = codeTextFinal(textModifValue, textFinal);
+    textFinal = codeText(textModifValue, textFinal, abc, letters);
     let realText = document.getElementById("realText");
     realText.textContent = textFinal;
    
@@ -185,7 +185,7 @@ function upperText(str) {
 }
 
 //transform text method
-function codeText(textEnter, textExit) {
+function codeText(textEnter, textExit, alpha, beta) {
     textEnter = textEnter.toUpperCase();
     for (let l=0; l<textEnter.length; l++) {
         switch (textEnter[l]) {
@@ -201,38 +201,25 @@ function codeText(textEnter, textExit) {
             case '.':
                 textExit += '.';
                 break;
-            default: 
-                for (let m=0;m<26;m++) {
-                    if (textEnter[l] === letters[m]) {
-                        textExit += abc[m]
-                    }
-                }
-        }
-    }
-    textExit = upperText(textExit);
-    return textExit;
-}
-
-function codeTextFinal(textEnter, textExit) {
-    textEnter = textEnter.toUpperCase();
-    for (let l=0; l<textEnter.length; l++) {
-        switch (textEnter[l]) {
-            case ' ':
-                textExit += ' ';
+            case '(':
+                textExit += '(';
                 break;
-            case "'":
-                textExit += "'";
+            case ')':
+                textExit += ')';
                 break;
-            case ',':
-                textExit += ',';
+            case 'à':
+                textExit += 'à';
                 break;
-            case '.':
-                textExit += '.';
+            case 'é': 
+                textExit += 'é';
+                break;
+            case 'è':
+                textExit += 'è';
                 break;
             default: 
                 for (let m=0;m<26;m++) {
-                    if (textEnter[l] === abc[m]) {
-                        textExit += letters[m]
+                    if (textEnter[l] === alpha[m]) {
+                        textExit += beta[m]
                     }
                 }
         }
